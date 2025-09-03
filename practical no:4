@@ -1,0 +1,47 @@
+SQL*Plus: Release 21.0.0.0.0 - Production on Tue Sep 2 20:32:37 2025
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Sep 02 2025 16:27:35 +05:30
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> create table borrower (rollno int, name varchar(30),issuedate date, bookname varchar(30),status varchar(1));
+
+Table created.
+
+SQL> insert into borrower values(101,'priya','17-jul-2025','java','I');
+
+1 row created.
+
+SQL> create table fine(rollno int, returndate date,amount float(62));
+
+Table created.
+
+SQL> insert into fine values(101,'19-aug-2025',250);
+
+1 row created.
+SQL> SET SERVEROUTPUT ON;
+SQL> @C:\Users\HP\OneDrive\Desktop\TE-A1\prog4.sql
+Enter value for r: 101
+old   9: r:=&r;
+new   9: r:=101;
+Enter value for bn: java
+old  10: bn:='&bn';
+new  10: bn:='java';
+no of  days48
+
+PL/SQL procedure successfully completed.
+SQL> select * from fine;
+
+    ROLLNO RETURNDAT     AMOUNT
+---------- --------- ----------
+       101 19-AUG-25        250
+       101 02-SEP-25        240
+
+
